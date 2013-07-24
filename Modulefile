@@ -1,4 +1,4 @@
-name    'nginx'
+name    'cofyc/nginx-gentoo'
 version '0.0.1'
 source 'https://github.com/Cofyc/puppet-nginx-gentoo'
 author 'Yecheng Fu'
