@@ -1,0 +1,8 @@
+name    'nginx'
+version '0.0.1'
+source 'https://github.com/Cofyc/puppet-nginx-gentoo'
+author 'Yecheng Fu'
+license 'Apache License, Version 2.0'
+summary 'Manages nginx on Gentoo'
+description 'Manages nginx on Gentoo'
+project_page 'https://github.com/Cofyc/puppet-nginx-gento'
