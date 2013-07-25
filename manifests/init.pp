@@ -1,5 +1,7 @@
 #
 class nginx (
+  $ensure                 = present,
+  $default_site           = true,
   $worker_processes       = 1,
   $worker_connections     = 1024,
 ) {
@@ -16,7 +18,7 @@ class nginx (
     }
   }
   package { "nginx":
-    ensure => latest,
+    ensure => $ensure,
   } ->
   file { 'nginx':
     path    => $nginx::config::configfile,
@@ -34,7 +36,9 @@ class nginx (
     hasrestart => true,
   }
 
-  nginx::site { "default":
-    site_tpl => "nginx/site.default.conf.erb",
+  if $default_site {
+    nginx::site { "default":
+      site_tpl => "nginx/site.default.conf.erb",
+    }
   }
 }
