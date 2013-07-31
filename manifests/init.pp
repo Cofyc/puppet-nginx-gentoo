@@ -1,9 +1,10 @@
 #
 class nginx (
   $ensure                 = present,
-  $default_site           = true,
+  $port                   = 81,
   $worker_processes       = 1,
   $worker_connections     = 1024,
+  $default_site           = true,
 ) {
   include nginx::config
 
@@ -17,6 +18,7 @@ class nginx (
       notify => Package['nginx'],
     }
   }
+
   package { "nginx":
     ensure => $ensure,
   } ->

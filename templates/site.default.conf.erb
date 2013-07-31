@@ -1,19 +1,13 @@
-# default catch-all
+# default
 server {
-    listen 81 default_server;
+    listen <%= port %> default_server;
     server_name _;
     location / {
         return 404;
     }
-}
-
-# for status
-server {
-    listen 80 default_server;
-    server_name _;
-    allow 127.0.0.1;
-    deny all;
     location /server-status {
+        allow 127.0.0.1;
+        deny all;
         stub_status on;
     }
 }
